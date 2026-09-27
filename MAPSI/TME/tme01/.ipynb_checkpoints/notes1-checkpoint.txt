@@ -1,0 +1,4 @@
+pour lancer jupyter:
+
+    $ source .venv/bin/activate
+    $ jupyter lab

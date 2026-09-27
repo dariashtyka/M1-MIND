@@ -1,0 +1,16 @@
+Pour chaque question on retrouve les les reponses dans les tables R1, R2 ...
+Cmd + E pour executer la partie selectionnée 
+    (il faut selectionner une/OU PLSR requetes avec ; à la fin )
+Ctrl + Enter pour executer oute la partie de texte depuis le précédent point-virgule jusqu’au point virgule suivant.
+    (il faut placer le cureseur juste avant le ;)
+Cmd + Shift + C
+
+
+(difference between SQl and PostgreSQL)
+Let's start with basics: you said you have been using SQL for long time. SQL is language to write queries to database. Interestingly, one of the database servers that one can use is named "SQL server". Is this what you are referring to?
+
+SQL as a language is semi-standardized, and can be used for variety of both commercial (Oracle, SQL Server) and free/open (PostgreSQL, MySQL) servers. Of course lists of servers that support the language is much longer than these 4 examples I posted.
+
+So, if you are asking specifically "SQL" vs. "PostgreSQL" - it's like asking what is the difference between HTML and Firefox. HTML is language, Firefox is tool to use this language, and run it to present webpages.
+
+If you're asking about differences between "SQL Server" and "PostgreSQL" - these are two different servers, written by different people, for different platforms, that happen to use the same language to allow one to query them, but each has their own changes to the language that will catch you by surprise if you'll try to run non-trivial queries written for one run in the other.

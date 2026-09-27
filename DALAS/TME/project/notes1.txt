@@ -1,0 +1,39 @@
+Articles
+    Google Scholar
+    Pubmed
+    paperwithodo
+    Arxiv
+    IEEE 
+    BIBCNRS
+
+Connected papers
+    origami
+
+Dataset
+    Xerodo
+    Kaggle
+    Hugging Face
+    Governement ... ??
+
+Computer Vision
+    Miccai -> challenges
+    ISBI
+    CVPR
+
+First session project
+Introduction :
+    -> Context (keywords)
+    -> Pb
+        Formulating Hp
+
+
+Variables | Factors explain | limits | mean | median | s*d
+          | F               | min
+          | C               | max
+          | F
+
+
+
+Problèemes 
+dasn le terminal se mettre dans rép ou on travaille
+et puis pip install ... msngo 
