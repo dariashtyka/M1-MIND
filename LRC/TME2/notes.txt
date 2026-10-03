@@ -1,0 +1,20 @@
+F1: and A not imp B A 
+    insatisfiable car qu'un seul arbre false
+F2: imp and or A C or B C imp not B or and A B C
+    sat masi pas valide car tout ouvert on peut rien dire
+F3: imp not imp A B imp not B not A
+    sat masi pas valide car tout ouvert on peut rien dire
+F4: or and imp A B imp B C and imp C B imp B A
+    sat mais pas valide car certains false certains ouvert on peut rien dire
+F5: imp imp A B equiv imp B C imp A C
+    sat masi pas valide car certains false certains ouvert on peut rien dire
+F6: imp and imp A B imp B C imp A C
+    sat masi pas valide car tout ouvert on peut rien dire
+
+Q2
+KB -> tamiflu
+ou KB et not tamiflu
+
+Q4
+a
+(a and (not a))->b

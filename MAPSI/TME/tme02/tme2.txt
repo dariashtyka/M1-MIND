@@ -1,0 +1,16 @@
+ATTENTION utilisation epsilon: 
+    tester a == b :
+    abs(a - b ) > epsilon
+ATTENTION à transposer les resultats: 
+        - j'ai P_X_YZ avec pas d'axe T donc (X, Y, Z) = (0, 1, 2)
+        - j'ai P_T_YZ avec pas d'axe X donc (Y, Z, T) = (0, 1, 2) => il faut T en premier => (2, 0, 1)
+            • np.sum(P_XT_YZ, axis = 0).transpose(2, 0 , 1)
+Appris:
+    stocker toute la loi jointe c'est trop lourd. 
+    Donc on peut stocker selon :
+        - le réseau bayésien P(A, B) = P(A|B)P(B) pour A = X0, ..., Xn (si on a trop de vars)
+        - ou par parties : P(XY), P(XZ), P(XY|YZ) etc ..
+AVEC proba de p:
+    si random () < p : 1
+    si random () >= p : 0 (proba 1-p)
+

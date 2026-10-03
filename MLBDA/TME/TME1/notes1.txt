@@ -1,7 +1,7 @@
 Pour chaque question on retrouve les les reponses dans les tables R1, R2 ...
 Cmd + E pour executer la partie selectionnée 
     (il faut selectionner une/OU PLSR requetes avec ; à la fin )
-Ctrl + Enter pour executer oute la partie de texte depuis le précédent point-virgule jusqu’au point virgule suivant.
+Ctrl + Enter pour executer toute la partie de texte depuis le précédent point-virgule jusqu’au point virgule suivant.
     (il faut placer le cureseur juste avant le ;)
 Cmd + Shift + C
 

@@ -1,0 +1,7 @@
+Useful things TME2:
+VISUALIZATION:
+    - reading/exploring CSV with pandas
+    - sns DRAWING PLOTS HISTS (so aesthetic and useful for project) EX1.2
+    - violin plots, correlation matrixs and heatmaps
+DASH
+    - useful to show to COLLABORATORS/CLIENTS on the web
