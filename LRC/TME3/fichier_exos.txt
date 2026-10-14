@@ -1,0 +1,241 @@
+SHTYKA Daria
+
+Exercice 1
+r(a,b).
+r(f(X), Y) :- p(X,Y).
+p(f(X), Y) :- r(X,Y).
+
+Exercice 2
+r(a,b).
+q(X,X).
+q(X,Z) :- r(X,Y), q(Y,Z).
+
+Exercice 3
+/* --- FAITS CONCRETS --- */
+
+
+consciencieux(pascal).
+consciencieux(zoe).
+
+/* --- RÈGLES ---*/
+/* Quelqu'un révise Y si c'est un étudiant sérieux et qu'il y a un examen Y */
+revise(X) :- serieux(X).
+
+/* Quelqu'un fait ses devoirs s'il est consciencieux, étudiant et qu'il y a un devoir*/
+faitdevoir(X) :- consciencieux(X).
+
+
+/* Un étudiant réussit s'il révise pour un examen */
+reuissi(X) :- revise(X).
+
+
+/* Un étudiant est sérieux s'il fait un devoir*/
+serieux(X) :- faitdevoir(X).
+
+
+
+/*etudiant(pascal).
+etudiant(zoe).*/
+/*, etudiant(X).*/
+
+Exercice 4
+pere(tolik,daria).
+pere(shura, tolik).
+pere(pasha, ira).
+pere(shura, serhii).
+
+
+mere(ira,daria).
+mere(tanya, tolik).
+mere(tanya, serhii).
+
+parent(X, Y) :- pere(X,Y).
+parent(X, Y):- mere(X,Y).
+/* TEST question3 */
+/*
+27 ?- parent(X,daria).
+X = tolik ;
+X = ira.
+
+28 ?- parent(daria, X).
+false.
+
+29 ?- parent(A,B).
+A = tolik,
+B = daria ;
+A = ira,
+B = daria.
+
+*/
+
+/* question 4 */
+parents(X,Y,Z):-pere(X,Z), mere(Y,Z).
+/* TEST question 4 */
+/*
+31 ?- parents(X,Y,daria).
+X = tolik,
+Y = ira.
+
+32 ?- parents(X,Y,Z).
+X = tolik,
+Y = ira,
+Z = daria.
+
+34 ?- parents(daria,Y,Z).
+false.
+*/
+
+/* question 5 */
+grandpere(X,Y) :- pere(Z,Y), pere(X,Z).
+frereOuSoeur(S, D) :- parents(X, Y, S), parents(X, Y, D), S\=D.
+/*
+
+36 ?- grandpere(X,daria).
+X = shura ;
+false.
+
+37 ?- grandpere(X,Y).
+X = shura,
+Y = daria ;
+false.
+
+38 ?- grandpere(shura,Y).
+Y = daria ;
+false.
+
+39 ?- grandpere(daria,Y).
+false.
+
+40 ?- frereOuSoeur(S, daria).
+false.
+
+46 ?- frereOuSoeur(F,tolik).
+F = serhii ;
+false.
+
+46 ?- frereOuSoeur(F,serhii).
+F = tolik ;
+false.
+*/
+
+ancetre(X,Y) :- parent(X,Y).
+ancetre(X,D) :- parent(X, T), ancetre(T, D).
+/*ancetre(X,Y) :- grandpere(X, Y).*/
+/*
+51 ?- ancetre(X,daria).
+X = tolik ;
+X = ira ;
+X = shura ;
+X = pasha ;
+X = tanya ;
+X = shura ;
+false.
+
+52 ?- ancetre(X,Y).
+X = tolik,
+Y = daria ;
+X = shura,
+Y = tolik ;
+X = pasha,
+Y = ira ;
+X = shura,
+Y = serhii ;
+X = ira,
+Y = daria ;
+X = tanya,
+Y = tolik ;
+X = tanya,
+Y = serhii ;
+X = shura,
+Y = daria ;
+X = pasha,
+Y = daria ;
+X = tanya,
+Y = daria ;
+X = shura,
+Y = daria ;
+false.
+
+55 ?- ancetre(shura,Y).
+Y = tolik ;
+Y = serhii ;
+Y = daria ;
+false.
+
+56 ?- ancetre(X,daria).
+X = tolik ;
+X = ira ;
+X = shura ;
+X = pasha ;
+X = tanya ;
+false.
+
+*/
+
+Exercice 5
+et(0,0,0).
+et(0,1,0).
+et(1,0,0).
+et(1,1,1).
+
+ou(0,0,0).
+ou(0,1,1).
+ou(1,0,1).
+ou(1,1,1).
+
+non(0,1).
+non(1,0).
+
+/*
+
+58 ?- et(X,Y,1).
+X = Y, Y = 1.
+
+59 ?- et(0,0,R).
+R = 0.
+
+60 ?- et(X,Y,R).
+X = Y, Y = R, R = 0 ;
+X = R, R = 0,
+Y = 1 ;
+X = 1,
+Y = R, R = 0 ;
+X = Y, Y = R, R = 1.
+
+*/
+
+
+/*circuit(X,Y,Z) :- et(X,Y,R), ou(R, X, Z).*/
+circuit(X,Y,Z) :- non(X, N), et(X,Y,F), non(F,G), et(G,N,T), et(X,Y,R), et(R, X, K), ou(T,K, Z).
+/*circuit(X,Y,Z) :- et(X,Y,R), et(R, X, Z).*/
+
+/*
+66 ?- circuit(X,Y,Z).
+X = Y, Y = 0,
+Z = 1 ;
+X = 0,
+Y = Z, Z = 1 ;
+X = 1,
+Y = Z, Z = 0 ;
+X = Y, Y = Z, Z = 1.
+
+
+faux implique vrai/faux c'est vrai
+67 ?- circuit(0,Y,Z).
+Y = 0,
+Z = 1 ;
+Y = Z, Z = 1.
+
+vrai implique faux c'est faux
+68 ?- circuit(1,Y,Z).
+Y = Z, Z = 0 ;
+
+vrai implique vrai c'est vrai
+Y = Z, Z = 1.
+
+69 ?- circuit(X,Y,0).
+X = 1,
+Y = 0 ;
+false.
+
+*/

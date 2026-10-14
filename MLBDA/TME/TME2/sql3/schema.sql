@@ -28,10 +28,28 @@ drop type EnsQuantite force;
 -- Définition des types de données
 -- -------------------------------
 
+---CORRECTION DEBUT----
+-- L'association ENTRE_DANS : une piece (de base ou composite) ENTRE_DANS la fabrication d'une ou plusieurs pieces composites,
+-- en précisant la quantité de composants nécessaire pour fabriquer la pièce composite.
+create type Piece_Composite;
+/
+create type T_entre_dans as object (
+	quoi      ref Piece_Composite,
+	quantite  number
+);
+/
+
+
+-- cardinalité de l'association : 1-N
+create type T_entre_dans_plusieurs as table of T_entre_dans;
+/
+
 create type Piece as object (
- nom Varchar2(30)
+ nom Varchar2(30),
+  entre_dans  T_entre_dans_plusieurs ---CORRECTION  ----
 ) not final;
 /
+---CORRECTION FIN ----
 create type Matiere as object (
  nom Varchar2(30),
  prix_kilo Number(9),
@@ -44,7 +62,7 @@ create type Piece_Base under Piece(
 ) not final;
 /
 create type Quantite as object(
-  piece_concernee ref Piece,
+  piece_concernee ref Piece, -- Piece Composite ? 
   nombre Number(10)
 );
 /

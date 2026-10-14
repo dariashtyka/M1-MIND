@@ -1,0 +1,9 @@
+faire un petit graphique
+faire le decribe des donnés
+
+on va demarrer de 2018 
+par disctict, par année
+
+un graphe -> Y par année
+un graphe -> Y par mois
+un graphe par disctict + année

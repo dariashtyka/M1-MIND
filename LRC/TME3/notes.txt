@@ -1,0 +1,38 @@
+EX1
+    Call: r(f(f(a)), b) — Prolog cherche à résoudre ce premier but.
+    Call: p(f(a), b) — Il applique la règle r(f(X), Y) :- p(X, Y) avec X=f(a). Un sous-but est créé.
+    Call: r(a, b) — Il applique la règle p(f(X), Y) :- r(X, Y) avec X=a.
+    Exit: r(a, b) — Il trouve le fait r(a, b). C'est une feuille : le sous-but est validé.
+    Exit: p(f(a), b) — Comme r(a, b) est vrai, la règle 2 est satisfaite.
+    Exit: r(f(f(a)), b) — Comme p(f(a), b) est vrai, la requête initiale est validée (true).
+
+ex2
+    Phase 1 : Première solution (X = b)
+    Call: (12) q(_29722, b) — Tu demandes q(X, b). Prolog cherche une correspondance.
+    Exit: (12) q(b, b) — Il trouve immédiatement le fait q(b, b). X devient b.
+    X = b — Prolog affiche la solution et s'arrête en attendant tes instructions.
+    Phase 2 : Recherche d'une 2ᵉ solution (Tu appuies sur ;)
+    Redo: (12) q(_29722, b) — Tu demandes une autre solution. Prolog revient en arrière et teste la règle suivante : q(X, b) :- r(X, Z), q(Z, b).
+    Call: (13) r(_29722, _35258) — Il doit d'abord prouver r(X, Z).
+    Exit: (13) r(a, b) — Il trouve le fait r(a, b). Donc X=a et Z=b.
+    Call: (13) q(b, b) — Il doit maintenant prouver le deuxième morceau de la règle : q(b, b).
+    Exit: (13) q(b, b) — C'est un fait connu ! Le sous-but réussit.
+    Exit: (12) q(a, b) — La règle complète a réussi pour X=a.
+    X = a — Prolog affiche la 2ᵉ solution.
+    Phase 3 : Recherche d'une 3ᵉ solution (Tu réappuies sur ;)
+    Redo: (13) q(b, b) — Tu redemandes une solution. Prolog repart du dernier point de choix : le sous-but q(b, b).
+    Call: (14) r(b, _43496) — Il essaie d'appliquer la règle à q(b, b), ce qui demande de prouver r(b, Z).
+    Fail: (14) r(b, _43496) — Aucun fait r(b, ...) n'existe. C'est un échec.
+    Fail: (13) q(b, b) — Par cascade, ce q(b, b) n'a plus d'autre alternative.
+    Fail: (12) q(_29722, b) — La requête initiale n'a plus aucune solution possible.
+    false. — Fin de la recherche.
+
+    q(b,X).
+   Call: (12) q(b, _85646) ? creep (vrai si X = b)
+   Exit: (12) q(b, b) ? creep (fait)
+    X = b ; (solution)
+   Redo: (12) q(b, _85646) ? creep (on tente aussi avec la regle ->)
+   Call: (13) r(b, _92072) ? creep (vrai si r(b, _))
+   Fail: (13) r(b, _92072) ? creep (r (b,) n'existe pas donc fail)
+   Fail: (12) q(b, _85646) ? creep (la deuixeme partie fail aussi à cause de fail de r(b,))
+    false.

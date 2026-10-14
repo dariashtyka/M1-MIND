@@ -1,0 +1,9 @@
+SHTYKA Daria
+
+Prologue est un langage qui se base sur l'algorithme de résolution et énonce s'il est vrai qu'il existe une relation en donnant les solutions si c'est le cas.
+Les notions princiaples que j'ai appris ce sont les définition des regles (:-)et des faits (un litteral positif) dans prologue.
+J'ai appris que les requêtes du prolog sert à voir s'il existe une solution selon la base des connaissances qu'on a donnée en forme des regles.
+Prolog cherche les solutions en explorant les règles. Le backtracking intervient pendant la recherche (pour revenir en arrière et tester une autre piste si une règle échoue) ou pour trouver des solutions alternatives quand on lui en demande d'autres.
+Il est obligatiore de mettre toutes les regles du prolgoue avec la même tête dans le même endroit, sinon il y'a un erreur.
+Pour les predicats comme SoeurFrere il faut faire attention pour que la personne ne soit pas elle même sa soeur/frere(X\=Y).
+Pour définir une formule qui a une regle OU on définit deux regles :- dans Prologue

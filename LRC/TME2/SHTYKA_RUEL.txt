@@ -1,0 +1,30 @@
+Binôme: Daria SHTYKA et Yuna RUEL
+EX2
+F1: la formule est insatisfiable car l'arbre contient une seule feuille et elle est false.
+F2: la formule est satisfiable car toutes les feuilles de l'arbre sont ouvertes.
+F3: la formule est insatisfiable car l'arbre ne contient que des feuilles fermées.
+F4: la formule est satisfiable car l'arbre contient des feuilles ouvertes.
+F5: la formule est satisfiable car l'arbre contient des feuilles ouvertes.
+F6: la formule est satisfiable car toutes les feuilles de l'arbre sont ouvertes.
+On ne peut pas déduire des arbres si la formule est valide. Il faut vérifier l'arbre de la négation de chaque formule. Si elle est insatisfiable alors elle est valide
+
+EX3
+3. 
+imp and and equiv F S imp G T and imp and F X or G B and X S T
+On peut dire que la prise de tamiflu est toujours indiquée si cette formule est valide. On a verifié qu'elle est satisfiable car l'arbre contient des feuilles ouvertes, mais sa contrapositive est aussi satisfiable car l'arbre contient des feuilles ouvertes. Donc la formule n'est pas valide et la prise de tamiflu n'est pas toujours indiquée.
+
+EX4
+3.
+Oui, la formule 'or or A and A B and and A B C' donne trois pré-modèles: A, A B et A B C. Et (1,_,_)inclus dans (1,1,_) inclus dans (1,1,1).
+
+4.
+Le nombre de pré-modèles ne peux pas être déduit par le nombre de modèle. 
+
+EX5
+1. A
+2. imp and A not A and A not A
+
+Compte rendu:
+On peut déduire la validité d'une formule uniquement en vérifiant si sa négation est insatisfiable. Donc on ne peut rien dire sur sa validité seulement à partir de son arbre, il faut regarder l'arbre de sa négation.
+Ensuite, il n'y a pas de lien entre le nombre des modèles obtenues et le nombre des prémodèles.
+Enfin, on ne peut pas déduire la validité si toutes les feuilles de l'arbre sont ouvertes et la non validité si l'arbre contient une feuille fermée.
